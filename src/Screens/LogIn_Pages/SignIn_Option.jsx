@@ -18,7 +18,13 @@ const SignInOption = ({ navigation }) => {
           marginTop: "100%",
         }}
       >
-        <IconTextButton Icon="google" color="red" title="Sign In with Google" />
+        {Platform.OS === "ios" ? null : (
+          <IconTextButton
+            Icon="google"
+            color="red"
+            title="Sign In with Google"
+          />
+        )}
         <TouchableOpacity
           onPress={() => navigation.navigate("SignUp")}
           style={{ width: "100%" }}

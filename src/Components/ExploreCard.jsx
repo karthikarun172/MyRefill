@@ -1,16 +1,16 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const ExploreCard = () => {
+const ExploreCard = ({ ShopName, Time, distance }) => {
   return (
     <View style={styles.ExploreCont}>
       <View style={styles.ExploreLeft}>
         <Text style={styles.ExploreLeftText1}>cafe</Text>
-        <Text style={styles.ExploreLeftText2}>Burger King</Text>
-        <Text style={styles.ExploreLeftText3}>Closed open at 9</Text>
+        <Text style={styles.ExploreLeftText2}>{ShopName}</Text>
+        <Text style={styles.ExploreLeftText3}>Closed open at {Time}</Text>
       </View>
       <View style={styles.ExploreRight}>
-        <Text style={styles.ExploreRightText}>5-7 min</Text>
+        <Text style={styles.ExploreRightText}>{distance}</Text>
       </View>
     </View>
   );

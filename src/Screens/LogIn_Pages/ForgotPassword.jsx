@@ -1,24 +1,25 @@
 import React from "react";
-import { View, Text, ImageBackground } from "react-native";
+import { View, Text, ImageBackground,Dimensions } from "react-native";
 import { Input } from "../../Components/Input";
 import ForgotPasswordImg from "../../../assets/ResetLink.png";
 import { Colors } from "../../Utils/Colors";
 import { TextButton } from "../../Components/Buttons";
+
+const {width,height} = Dimensions.get('window')
+
 const ForgotPassword = ({ navigation }) => {
   return (
-    <ImageBackground
-      source={ForgotPasswordImg}
-      style={{ width: "100%", height: "100%" }}
-    >
       <View
         style={{
           width: "100%",
+          backgroundColor:'white',
           alignItems: "center",
-          marginTop: "100%",
+          height:height
+          
         }}
       >
         <Text
-          style={{ color: Colors.ButtonColor }}
+          style={{ color: Colors.ButtonColor ,marginTop:height/3 }}
           onPress={() => navigation.goBack()}
         >
           {`<`} Back{" "}
@@ -29,7 +30,6 @@ const ForgotPassword = ({ navigation }) => {
         </Text>
         <TextButton title="Request for link" />
       </View>
-    </ImageBackground>
   );
 };
 

@@ -1,9 +1,18 @@
-import React from "react";
-import { View, Text, ImageBackground, Platform } from "react-native";
-import SignInOptionImg from "../../../assets/Signinoptions.png";
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  ImageBackground,
+  Platform,
+  Dimensions, Linking
+} from "react-native";
+import SignInOptionImg from "../../../assets/SignInImg.png";
 import { TextButton, IconTextButton } from "../../Components/Buttons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Colors } from "../../Utils/Colors";
+import config from '../../config.json'
+
+const { width, height } = Dimensions.get("window");
 
 const SignInOption = ({ navigation }) => {
   return (
@@ -15,16 +24,9 @@ const SignInOption = ({ navigation }) => {
         style={{
           width: "100%",
           alignItems: "center",
-          marginTop: "100%",
+          marginTop: height / 2,
         }}
       >
-        {Platform.OS === "ios" ? null : (
-          <IconTextButton
-            Icon="google"
-            color="red"
-            title="Sign In with Google"
-          />
-        )}
         <TouchableOpacity
           onPress={() => navigation.navigate("SignUp")}
           style={{ width: "100%" }}
@@ -42,14 +44,15 @@ const SignInOption = ({ navigation }) => {
         />
         <View
           style={{
-            margin: Platform.OS === "ios" ? 10 : 50,
             alignItems: "center",
+            position:"absolute",
+            top:height/2.5
           }}
         >
-          <Text style={{ color: Colors.ButtonColor }}>
+          <Text style={{ color: Colors.ButtonColor }} onPress={()=>Linking.openURL(config.Terms)} >
             By Signing In or Sigining Up you agree to
           </Text>
-          <Text style={{ color: "grey" }}> Our Terms and Condtions </Text>
+          <Text style={{ color: "grey" }} onPress={()=>Linking.openURL(config.Terms)}> Our Terms and Condtions </Text>
         </View>
       </View>
     </ImageBackground>

@@ -1,26 +1,25 @@
 import React from "react";
-import { View, Text, ImageBackground } from "react-native";
-import SignInImg from "../../../assets/SignInImg.png";
+import { View, Text, ImageBackground, Dimensions } from "react-native";
+import SignInImg from "../../../assets/LoginBG.jpg";
 import { Input, PasswordInput } from "../../Components/Input";
 import { TextButton } from "../../Components/Buttons";
 import { Colors } from "../../Utils/Colors";
 
+const { width, height } = Dimensions.get("window");
 const SignIn = ({ navigation }) => {
   return (
-    <ImageBackground
-      source={SignInImg}
-      style={{ width: "100%", height: "100%" }}
-    >
+   
       <View
         style={{
           width: "100%",
           alignItems: "center",
-          marginTop: "100%",
+          backgroundColor: "white",
+          paddingBottom: height,
         }}
       >
         <Text
           onPress={() => navigation.goBack()}
-          style={{ color: Colors.ButtonColor }}
+          style={{ color: Colors.ButtonColor,marginTop:70 }}
         >
           {" "}
           {`<`} Back{" "}
@@ -35,7 +34,6 @@ const SignIn = ({ navigation }) => {
           Forgot Password ?
         </Text>
       </View>
-    </ImageBackground>
   );
 };
 

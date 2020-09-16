@@ -1,28 +1,45 @@
 import React from "react";
-import { View, Text, ImageBackground } from "react-native";
+import {
+  View,
+  Text,
+  ImageBackground,
+  Dimensions,
+  KeyboardAvoidingView,
+} from "react-native";
 import { Input, PasswordInput } from "../../Components/Input";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { TextButton } from "../../Components/Buttons";
-import SignUpImg from "../../../assets/SignUpImg.png";
+import SignUpImg from "../../../assets/LoginBG.jpg";
 import { Colors } from "../../Utils/Colors";
+
+const { width, height } = Dimensions.get("window");
+
 const SignUp = ({ navigation }) => {
   return (
-    <ImageBackground
-      source={SignUpImg}
-      style={{ width: "100%", height: "100%" }}
-    >
-      <View style={{ width: "100%", alignItems: "center", marginTop: "90%" }}>
-        <Text
-          onPress={() => navigation.goBack()}
-          style={{ color: Colors.ButtonColor }}
+    <KeyboardAwareScrollView style={{ flex: 1 }}>
+        <View
+          style={{
+            width: "100%",
+            alignItems: "center",
+            backgroundColor: "white",
+            height:height,
+            paddingTop: 50,
+          }}
         >
-          {`<`} Back{" "}
-        </Text>
-        <Input placeholder="Enter name" />
-        <Input placeholder="Enter Email id" />
-        <PasswordInput placeholder="Enter Password" />
-        <TextButton title="Sign Up" />
-      </View>
-    </ImageBackground>
+          <Text
+            onPress={() => navigation.goBack()}
+            style={{ color: Colors.ButtonColor }}
+          >
+            {`<`} Back{" "}
+          </Text>
+
+          <Input placeholder="Enter Name" />
+          <Input placeholder="Enter Email Id" />
+          <Input placeholder="Enter Mobile Number" keyboardType="numeric" />
+          <PasswordInput placeholder="Enter Password" />
+          <TextButton title="Sign Up" onPress={() => console.log("sd")} />
+        </View>
+    </KeyboardAwareScrollView>
   );
 };
 

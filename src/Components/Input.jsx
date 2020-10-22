@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
+import { View, TextInput, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Colors } from "../Utils/Colors";
 import { Entypo } from "@expo/vector-icons";
 
@@ -11,6 +11,21 @@ export function Input({ placeholder, onChangeText, keyboardType }) {
       onChangeText={onChangeText}
       keyboardType={keyboardType}
     />
+  );
+}
+
+export function ProfileInput({ placeholder, onChangeText, keyboardType, title }) {
+  return (
+    <View style={styles.ProfileIp} >
+      <Text style={{ fontWeight: 'bold', fontSize: 18 }} >{title}</Text>
+      <TextInput
+        style={{ borderWidth: 0.4, borderColor: "black", width: "70%", height: 40, borderRadius: 3, backgroundColor: 'lightgrey', padding: 10, }}
+        placeholder={placeholder}
+        onChangeText={onChangeText}
+        keyboardType={keyboardType}
+        placeholderTextColor={"grey"}
+      />
+    </View>
   );
 }
 
@@ -56,4 +71,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderRadius: 15,
   },
+  ProfileIp: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+    , marginTop: 20,
+
+  }
 });

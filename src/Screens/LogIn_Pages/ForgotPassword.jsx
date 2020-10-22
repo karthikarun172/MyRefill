@@ -1,35 +1,34 @@
 import React from "react";
-import { View, Text, ImageBackground,Dimensions } from "react-native";
+import { View, Text, ImageBackground, Dimensions } from "react-native";
 import { Input } from "../../Components/Input";
 import ForgotPasswordImg from "../../../assets/ResetLink.png";
 import { Colors } from "../../Utils/Colors";
 import { TextButton } from "../../Components/Buttons";
 
-const {width,height} = Dimensions.get('window')
+const { width, height } = Dimensions.get("window");
 
 const ForgotPassword = ({ navigation }) => {
   return (
-      <View
-        style={{
-          width: "100%",
-          backgroundColor:'white',
-          alignItems: "center",
-          height:height
-          
-        }}
+    <View
+      style={{
+        width: "100%",
+        backgroundColor: "white",
+        alignItems: "center",
+        height: "100%",
+      }}
+    >
+      <Text
+        style={{ color: Colors.ButtonColor, marginTop: height / 3 }}
+        onPress={() => navigation.goBack()}
       >
-        <Text
-          style={{ color: Colors.ButtonColor ,marginTop:height/3 }}
-          onPress={() => navigation.goBack()}
-        >
-          {`<`} Back{" "}
-        </Text>
-        <Input placeholder="Enter the Email id" />
-        <Text style={{ marginTop: 20, color: Colors.ButtonColor }}>
-          Enter your Email ID to send Reset Link
-        </Text>
-        <TextButton title="Request for link" />
-      </View>
+        {`<`} Back{" "}
+      </Text>
+      <Input placeholder="Enter the Email id" />
+      <Text style={{ marginTop: 20, color: Colors.ButtonColor }}>
+        Enter your Email ID to send Reset Link
+      </Text>
+      <TextButton title="Request for link" />
+    </View>
   );
 };
 

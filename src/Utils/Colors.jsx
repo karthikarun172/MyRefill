@@ -5,6 +5,7 @@ export const Colors = {
 
   ButtonColor: "#008AF5",
   ButtonColor1: "white",
+  ButtonColor2: "#00A2F9",
 
   AppBGBlue: "00A2F9",
 };

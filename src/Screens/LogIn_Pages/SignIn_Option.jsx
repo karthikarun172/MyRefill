@@ -45,14 +45,14 @@ const SignInOption = ({ navigation }) => {
         <View
           style={{
             alignItems: "center",
-            position:"absolute",
-            top:height/2.5
+            position: "absolute",
+            top: height / 2.5
           }}
         >
-          <Text style={{ color: Colors.ButtonColor }} onPress={()=>Linking.openURL(config.Terms)} >
+          <Text style={{ color: Colors.ButtonColor }} onPress={() => Linking.openURL(config.Terms)} >
             By Signing In or Sigining Up you agree to
           </Text>
-          <Text style={{ color: "grey" }} onPress={()=>Linking.openURL(config.Terms)}> Our Terms and Condtions </Text>
+          <Text style={{ color: "grey" }} onPress={() => Linking.openURL(config.Terms)}> Our Terms and Condtions </Text>
         </View>
       </View>
     </ImageBackground>

@@ -1,3 +1,4 @@
 {
-    "Terms":"https://www.findmyrefill.com/terms-and-condition"
+    "Terms":"https://www.findmyrefill.com/terms-and-condition",
+    "apiEndPoint":"http://157.245.106.57:3000"
 }

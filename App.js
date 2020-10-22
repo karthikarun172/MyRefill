@@ -10,14 +10,24 @@ import { Input, PasswordInput } from "./src/Components/Input";
 import ExploreCard from "./src/Components/ExploreCard";
 import SignInOption from "./src/Screens/LogIn_Pages/SignIn_Option";
 import { NavigationContainer } from "@react-navigation/native";
+import { Provider as RegisterProvider } from "./src/Context/RegisterContext";
+import { Provider as CityProvider } from "./src/Context/CityContext";
+import { Provider as StationProvider } from "./src/Context/StationContext";
+
 
 import Navigation from "./src/Navigations/Navigation";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Navigation />
-    </NavigationContainer>
+    <StationProvider>
+      <CityProvider>
+        <RegisterProvider>
+          <NavigationContainer>
+            <Navigation />
+          </NavigationContainer>
+        </RegisterProvider>
+      </CityProvider>
+    </StationProvider>
   );
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Platform } from "react-native";
+import { View, Text, StyleSheet, Platform, TouchableOpacity } from "react-native";
 import { Colors } from "../Utils/Colors";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -12,12 +12,20 @@ export function TextButton({ title, onPress }) {
     </View>
   );
 }
-
-export function TextButtonWhite({ title }) {
+export function TextButton1({ title, onPress }) {
   return (
-    <View style={styles.ButtonContWhite}>
-      <Text style={styles.ButtonTextWhite}>{title}</Text>
+    <View style={{ ...styles.ButtonCont1 }}>
+      <Text onPress={onPress} style={{ ...styles.ButtonText, fontWeight: 'bold' }}>
+        {title}
+      </Text>
     </View>
+  );
+}
+export function TextButtonWhite({ title, onPress }) {
+  return (
+    <TouchableOpacity onPress={onPress} style={{ ...styles.ButtonContWhite }}>
+      <Text style={styles.ButtonTextWhite}>{title}</Text>
+    </TouchableOpacity>
   );
 }
 
@@ -32,18 +40,25 @@ export function IconTextButton({ title, Icon, color }) {
 
 const styles = StyleSheet.create({
   ButtonCont: {
-    marginTop: 30,
     width: "80%",
+    marginTop: 30,
     backgroundColor: Colors.ButtonColor,
     borderRadius: 25,
     elevation: 4,
   },
+  ButtonCont1: {
+    width: "50%",
+    marginTop: 30,
+    backgroundColor: Colors.ButtonColor2,
+    borderRadius: 15,
+    elevation: 4,
+  },
   ButtonContWhite: {
-    marginTop: 20,
     width: "80%",
     backgroundColor: Colors.ButtonColor1,
-    borderRadius: 25,
+    borderRadius: 15,
     elevation: 4,
+
   },
   IconButtonCont: {
     marginTop: 30,
@@ -67,7 +82,11 @@ const styles = StyleSheet.create({
     color: Colors.TextColor1,
     textAlign: "center",
     textAlignVertical: "center",
-    height: 50,
+    height: 40,
     fontSize: 18,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 5, paddingBottom: 5,
+    fontWeight: 'bold'
   },
 });
